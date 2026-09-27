@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: kdnjv-od3rc
+created: 2026-09-27T18:09:07+05:30

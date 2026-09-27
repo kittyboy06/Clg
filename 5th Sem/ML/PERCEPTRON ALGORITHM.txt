@@ -1,0 +1,173 @@
+PERCEPTRON ALGORITHM
+
+How a Perceptron Algorithm Works
+
+Step 1: Initialize Weights and Bias
+- Assign small random values to all weights (W) and bias (b).
+- These are the initial values before the learning process begins.
+
+Example:
+W1 = 0.2
+W2 = -0.1
+b = 0.3
+
+Weights
+--------
+ determine how strongly each input contributes to the prediction. A larger weight means the corresponding input has a higher impact.
+
+Weights are learned during training, adjusting based on errors.
+They act like importance scores for each feature.
+
+Bias
+----
+The bias is a constant value added to the weighted sum to shift the decision boundary.
+
+
+Difference Between Weights and Bias
+------------------------------------
+Weights control how much each input influences the output.
+Bias controls when the perceptron activates, independent of any input.
+Mathematically, Weights tilt the line and Bias shifts the line up/down or left/right.
+------------------------------------------------------------
+
+Step 2: Process Each Training Example
+
+For every training sample, perform the following steps:
+
+(i) Compute the Weighted Sum
+
+Formula:
+z = Σ(Wi × Xi) + b
+
+Where:
+Wi = Weight
+Xi = Input feature
+b = Bias
+
+Example:
+Study Hours (X1) = 8
+Attendance (X2) = 90
+W1 = 0.5
+W2 = 0.2
+b = -15
+
+z = (8 × 0.5) + (90 × 0.2) - 15
+z = 4 + 18 - 15
+z = 7
+
+The value of z is called the weighted sum.
+
+------------------------------------------------------------
+
+(ii) Apply the Activation Function
+
+The activation function decides whether the neuron should produce an output based on the weighted sum.
+
+In a Perceptron, the Step Function is commonly used.
+
+------------------------------------------------------------
+
+(iii) Apply the Step Function
+
+Formula:
+
+ŷ = 1, if z ≥ 0
+ŷ = 0, otherwise
+
+Where:
+ŷ = Predicted Output
+
+Example 1:
+z = 7
+Since 7 ≥ 0,
+Prediction = 1 (Pass)
+
+Example 2:
+z = -4
+Since -4 < 0,
+Prediction = 0 (Fail)
+
+------------------------------------------------------------
+
+(iv) Update Weights and Bias (Only if Prediction is Wrong)
+
+If the prediction is correct:
+- No changes are made.
+
+If the prediction is incorrect:
+- Update the weights and bias.
+
+Weight Update Formula:
+Wi = Wi + λ(y - ŷ)Xi
+
+Bias Update Formula:
+b = b + λ(y - ŷ)
+
+Where:
+λ = Learning Rate
+y = Actual Output
+ŷ = Predicted Output
+Xi = Input Feature
+
+Example:
+Actual Output = 1
+Predicted Output = 0
+Learning Rate (λ) = 0.1
+Input (X1) = 8
+Current Weight = 0.5
+
+New Weight:
+= 0.5 + 0.1(1 - 0) × 8
+= 0.5 + 0.8
+= 1.3
+
+The weight is increased because the prediction was incorrect.
+
+------------------------------------------------------------
+
+Step 3: Repeat the Process
+
+Repeat the following steps for all training examples:
+1. Compute the weighted sum.
+2. Apply the activation function.
+3. Predict the output.
+4. Compare the prediction with the actual output.
+5. Update weights and bias if necessary.
+
+Continue the process until:
+- There are no prediction errors, or
+- The maximum number of iterations (epochs) is reached.
+
+------------------------------------------------------------
+
+Flow of the Perceptron Algorithm
+
+Training Data
+      ↓
+Initialize Random Weights and Bias
+      ↓
+Compute Weighted Sum (z)
+      ↓
+Apply Activation Function
+      ↓
+Predict Output (0 or 1)
+      ↓
+Is the Prediction Correct?
+      ↓
+Yes → Process Next Training Example
+No  → Update Weights and Bias
+      ↓
+Repeat Until Convergence
+      ↓
+Final Trained Perceptron Model
+
+------------------------------------------------------------
+
+Key Steps to Remember
+
+1. Initialize random weights and bias.
+2. Compute the weighted sum.
+3. Apply the activation function.
+4. Predict the output (0 or 1).
+5. Update weights and bias if the prediction is wrong.
+6. Repeat until the model learns correctly.
